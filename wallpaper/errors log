@@ -1,0 +1,12 @@
+记录爬取壁纸所遇到的错误
+url: simpledesktops.com
+spider: simple
+
+1.main文件execute不能执行，cannot found modle scrapy
+    解：python环境不对
+
+2.response content isn't 'text'
+    解：解析了一张img的url，所以response.xpath出错，这个时候已经是'src'了。xpath只能解析html和xml
+
+3.获取的文件打不开
+    解：因为获取文件加入名字是取自于网页，是属于png格式，而ImagePipeline是会转化为jpg格式的，所以以png格式命名打不开jpg格式，重命名文件就可以了
